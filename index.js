@@ -28,11 +28,14 @@ console.log(processFirstItem(['foo','bar'],function(str){return str+str}));
   Study the code for counter1 and counter2, then answer the questions below.
   
   1. What is the difference between counter1 and counter2?
-  
+      In counter1, the count variable is locally scoped to the function counterMaker and in counter2, it is a global variable.
+
   2. Which of the two uses a closure? How can you tell?
-  
+      counter1 uses closure because the function counter is pulling the count variable from it's parent function, counterMaker.
+
   3. In what scenario would the counter1 code be preferable? In what scenario would 
      counter2 be better?  
+      ???
 */
 
 // counter1 code
@@ -61,10 +64,8 @@ Use the inning function below to do the following:
   For example: invoking inning() should return a numerical score value of 0, 1, or 2
 */
 
-function inning(/*Code Here*/){
-
-    /*Code Here*/
-
+function inning(){
+  return Math.floor(Math.random() * 3);
 }
 
 /* Task 3: finalScore()
@@ -80,11 +81,45 @@ For example: invoking finalScore(inning, 9) might return this object:
 }
 */ 
 
-function finalScore(/*code Here*/){
+function finalScore(inning, inningNum){
+  
+  let homeScore = 0;
+  let awayScore = 0;
 
-  /*Code Here*/
-
+  for(let i = 0; i < inningNum; i++){
+    var totalScore = {
+      Home: homeScore,
+      Away: awayScore
+    }
+    homeScore = homeScore.Home + inning();
+    awayScore = awayScore.Away + inning();
+  }
+  return totalScore;
 }
+
+// Failed:
+// for(let i = 0; i < inningNum; i++){
+//   homeScore = homeScore.Home + inning();
+//   awayScore = awayScore.Away + inning();
+//   totalScore.push(`Home: ${homeScore}`);
+//   totalScore.push(`Away: ${awayScore}`)
+// }
+
+// for(let i = 0; i < inningNum; i++){
+//   homeScore = homeScore.Home + inning();
+//   awayScore = awayScore.Away + inning();
+//   totalScore.push(`Home: ${homeScore}, Away: ${awayScore}`); 
+// }
+
+// for(let i = 0; i < inningNum; i++){
+//   homeScore = homeScore.Home + inning();
+//   awayScore = awayScore.Away + inning();
+//   totalScore.Home.push(homeScore);
+//   totalScore.Away.push(awayScore)
+// }
+
+
+
 
 /* Task 4: 
 // create a function called getInningScore 
