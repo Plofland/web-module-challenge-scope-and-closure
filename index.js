@@ -97,7 +97,7 @@ function finalScore(inning, inningNum){
   return totalScore;
 }
 
-// Failed:
+// Failed loops:
 // for(let i = 0; i < inningNum; i++){
 //   homeScore = homeScore.Home + inning();
 //   awayScore = awayScore.Away + inning();
@@ -132,6 +132,7 @@ function getInningScore(inning) {
     Away: inning()
   }
 }
+
 /* Task 5: scoreboard()
 Use the scoreboard function below to do the following:
   1. Receive a callback function, that you create, called `getInningScore`
@@ -176,8 +177,14 @@ Use the scoreboard function below to do the following:
   */
 
 
-function scoreboard(/* CODE HERE */) {
-  /* CODE HERE */
+function scoreboard(getInningScore, inning, inningNum) {
+  let endScore = [];
+  let homeScore = 0;
+  let awayScore = 0;
+  for(let i = 0; i < inningNum; i++){
+    endScore.push(`Inning ${i + 1}: Away ${homeScore + inning()} - Home ${awayScore + inning()}`)
+  }
+  return endScore;
 }
 
 
