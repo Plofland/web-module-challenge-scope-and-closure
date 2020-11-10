@@ -33,9 +33,8 @@ console.log(processFirstItem(['foo','bar'],function(str){return str+str}));
   2. Which of the two uses a closure? How can you tell?
       counter1 uses closure because the function counter is pulling the count variable from it's parent function, counterMaker.
 
-  3. In what scenario would the counter1 code be preferable? In what scenario would 
-     counter2 be better?  
-      ???
+  3. In what scenario would the counter1 code be preferable? In what scenario would counter2 be better?  
+      counter1 would be good to keep the count variable and counter function isolated within a code block(counterMaker). counter2's setup would be good for when you want count to be a global variable. If you have other functions that need to use the count variable, the latter setup would be preferable.
 */
 
 // counter1 code
