@@ -85,12 +85,12 @@ function finalScore(inning, inningNum){
   
   let homeScore = 0;
   let awayScore = 0;
+  let totalScore = {
+    Home: homeScore,
+    Away: awayScore
+  }
 
   for(let i = 0; i < inningNum; i++){
-    var totalScore = {
-      Home: homeScore,
-      Away: awayScore
-    }
     homeScore = homeScore.Home + inning();
     awayScore = awayScore.Away + inning();
   }
@@ -181,9 +181,15 @@ function scoreboard(getInningScore, inning, inningNum) {
   let endScore = [];
   let homeScore = 0;
   let awayScore = 0;
+
   for(let i = 0; i < inningNum; i++){
     endScore.push(`Inning ${i + 1}: Away ${homeScore + inning()} - Home ${awayScore + inning()}`)
   }
+
+  // if(homeScore === awayScore){
+
+  // }
+  
   return endScore;
 }
 
